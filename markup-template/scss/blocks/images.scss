@@ -1,0 +1,73 @@
+.images__container {
+	max-width: 580px;
+	max-height: 450px;
+	background-color: #fff;
+
+	@include media("<=sm-phone") {
+		height: 300px;
+	}
+}
+
+.images .swiper-container {
+	width: 100%;
+	height: 100%;
+}
+
+.images__flex {
+	display: flex;
+	align-items: flex-start;
+}
+
+.images__col {
+	display: flex;
+	flex-direction: column;
+	margin-right: 35px;
+}
+
+.images__thumbs {
+	width: 95px;
+	height: 450px;
+}
+
+.images__thumbs .swiper-slide {
+	margin-bottom: 8px !important;
+}
+
+.images__thumbs .images__image {
+	height: 95px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+}
+
+.images__thumbs .swiper-slide-thumb-active .images__image {
+	border: 3px solid #ccc;
+}
+
+.images__images .swiper-container {
+	height: 450px;
+
+	@include media("<=sm-phone") {
+		height: 250px;
+	}
+}
+
+.images__images .images__image img {
+	object-position: top;
+	transition: 3s;
+}
+
+.images__images .images__image:hover img {
+	transform: scale(1.1);
+}
+
+.images__image {
+	width: 100%;
+	height: 100%;
+}
+
+.images__image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}

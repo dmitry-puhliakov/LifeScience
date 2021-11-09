@@ -1,0 +1,32 @@
+//----- main style for project
+@import "base/variables";
+@import "base/fonts";
+@import "vendors/include-media";
+@import "vendors/normalize";
+@import "base/mixins";
+@import "base/button";
+@import "base/helpers";
+@import "base/forms";
+@import "base/typography";
+@import "base/common";
+@import "base/header";
+@import "base/footer";
+@import "vendors/smartmenus";
+@import "vendors/swiper-bundle.min.scss";
+@import "vendors/fancybox.scss";
+
+//----- styles of blocks
+@import "blocks/banner.scss";
+@import "blocks/slider.scss";
+@import "blocks/tile.scss";
+@import "blocks/section.scss";
+@import "blocks/card.scss";
+@import "blocks/new.scss";
+@import "blocks/promos_specials.scss";
+@import "blocks/newsletter.scss";
+@import "blocks/quick-view.scss";
+@import "blocks/breadcrumbs.scss";
+@import "blocks/product-main.scss";
+@import "blocks/images.scss";
+@import "blocks/info.scss";
+@import "blocks/product-tabs.scss";

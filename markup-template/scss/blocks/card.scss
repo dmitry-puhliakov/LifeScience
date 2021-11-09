@@ -1,0 +1,133 @@
+.card {
+	position: relative;
+	width: 220px;
+
+	&:hover {
+		.card_rollover {
+			visibility: visible;
+			opacity: 0.85;
+		}
+	}
+
+	&_img {
+		width: 220px;
+		height: 220px;
+		border: 1px solid $c-bg-light-gray;
+	}
+
+	&_title-wrapper {
+		position: relative;
+		width: 100%;
+		height: 68px;
+	}
+
+	&_title {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		max-height: 68px;
+		margin-bottom: 0;
+		transform: translateY(-50%);
+		overflow: hidden;
+	}
+
+	&_prices {
+		display: flex;
+		justify-content: space-around;
+		margin-bottom: 36px;
+	}
+
+	&_price {
+		position: relative;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 60px;
+
+		&::before {
+			content: "$";
+			position: relative;
+			top: -7px;
+		}
+
+		&::after {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -42px;
+		}
+
+		&._retail {
+			background-color: #ebebeb;
+
+			&::after {
+				content: "retail";
+			}
+		}
+
+		&._retail._even {
+			background-color: #fff;
+		}
+
+		&._price {
+			background-color: #fad482;
+
+			&::after {
+				content: "price";
+			}
+		}
+
+		&._member {
+			background-color: #84d5d8;
+
+			&::after {
+				content: "member";
+			}
+		}
+	}
+
+	&_add-to-cart {
+		display: block;
+		width: 220px;
+		height: 38px;
+		border: none;
+		border-radius: 19px;
+		background-color: $c-bg-green;
+		cursor: pointer;
+	}
+
+	&_add-to-wishlist {
+		display: block;
+		width: 220px;
+		height: 35px;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
+	&_rollover {
+		padding: 6px 0;
+		position: absolute;
+		top: 168px;
+		left: 25px;
+		right: 17px;
+		border-radius: 15px;
+		border: 1px solid rgba(37, 37, 37, 0.7);
+		background-color: #fff;
+		text-align: center;
+		visibility: hidden;
+		opacity: 0;
+		transition: all 0.2s linear;
+
+		a {
+			font-family: "Lato";
+			font-size: 11px;
+			font-weight: 700;
+			line-height: 17.35px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+}

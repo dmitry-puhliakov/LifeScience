@@ -1,0 +1,206 @@
+.header-menu-wrapper {
+	position: relative;
+	z-index: 2;
+
+	.container {
+		@include media("<=mdx-desktop") {
+			padding: 10px 0;
+			align-items: center;
+		}
+	}
+}
+
+.header-fl {
+	background-color: $c-bg-header-first;
+
+	.header-fl-wrapper {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		height: 34px;
+	}
+
+	&_item {
+		margin-right: 13px;
+
+		&:last-child {
+			margin-right: 23px;
+		}
+	}
+
+	&_signin {
+		display: block;
+		width: 68px;
+		height: 22px;
+		border: 1px solid $c-bg-white;
+		border-radius: 11px;
+	}
+
+	&_cart {
+		display: block;
+		position: relative;
+		width: 18px;
+		height: 18px;
+		margin-top: 3px;
+		background-image: url(../img/shopping-cart.svg);
+	}
+
+	&_cart-fullness {
+		display: block;
+		position: absolute;
+		top: -7px;
+		right: -13px;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background-color: $c-bg-dark-blue;
+
+	}
+}
+
+// ddStick stiling
+.dd {
+	&-selected-text {
+		margin: 0;
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 12px;
+		letter-spacing: 0.2px;
+		color: $c-txt-white;
+	}
+
+	&-selected-image {
+		width: 22px;
+		height: 16px;
+	}
+
+	&-option-text {
+		margin: 0;
+	}
+}
+
+//***** HEADER SECOND-LEVEL
+.header-sl {
+	background-color: $c-bg-header-second;
+
+	.header-sl-wrapper {
+		display: flex;
+		justify-content: space-between;
+		height: 63px;
+
+		@include media("<=desk-tab") {
+			flex-direction: column;
+			height: 100%;
+			padding-bottom: 10px;
+		}
+	}
+
+	&_left {
+		display: flex;
+
+		@include media("<=desk-tab") {
+			justify-content: space-between;
+		}
+
+		// @include media("<=sm-phone") {
+		// 	justify-content: center;
+		// }
+	}
+
+	&_logo {
+		position: relative;
+		width: 238px;
+		height: 65px;
+
+		@include media("<=sm-phone") {
+			width: 166.6px;
+			height: 65.5px;
+
+		}
+	}
+
+	&_logo-img {
+			display: block;
+			position: absolute;
+			top: -14px;
+			width: 100%;
+
+			@include media("<=sm-phone") {
+				top: 0;
+				padding: 10px 0;
+			}
+	}
+
+	&_separator {
+		align-self: center;
+		width: 1px;
+		height: 39px;
+		margin: 0 25px;
+		background-color: #cad2d5;
+
+		@include media("<=sm-phone") {
+			margin: 0 5px;
+		}
+	}
+
+	&_slogan {
+		align-self: center;
+		width: 135px;
+		margin: 0;
+
+		@include media("<=xs-phone") {
+			width: 110px;
+		}
+	}
+
+	&_right {
+		display: flex;
+		align-items: center;
+
+		@include media("<=xs-phone") {
+			flex-direction: column-reverse;
+		}
+	}
+
+	&_search {
+		margin-right: 15px;
+
+		@include media("<=desk-tab") {
+			width: 100%;
+		}
+
+		@include media("<=xs-phone") {
+			margin-right: 0;
+		}
+
+		input[type="text"] {
+			position: relative;
+			width: 260px;
+			height: 30px;
+			padding-left: 10px;
+			padding-right: 30px;
+			border-radius: 5px;
+			background-color: $c-bg-white;
+			border: none;
+			outline: none;
+			background-image: url(../img/search.svg);
+			background-repeat: no-repeat;
+			background-position-x: calc(100% - 10px);
+			background-position-y: center;
+			background-size: 15px 15px;
+
+			@include media("<=desk-tab") {
+				width: 100%;
+			}
+		}
+	}
+
+	&_phone {
+		margin-top: -1px;
+		margin-right: 10px;
+
+		@include media("<=xs-phone") {
+			margin-bottom: 15px;
+		}
+	}
+}

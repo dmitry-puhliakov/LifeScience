@@ -1,0 +1,17 @@
+.breadcrumbs {
+	&_content {
+		display: flex;
+		margin-top: 20px;
+		margin-bottom: 12px;
+	}
+
+	&__separator {
+		// display: inline-block;
+		padding: 0 2px
+
+	}
+
+	span {
+		background-color: transparent;
+	}
+}

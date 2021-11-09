@@ -1,0 +1,67 @@
+.tile {
+	display: block;
+	position: relative;
+	padding: 15px;
+	text-align: center;
+	cursor: pointer;
+
+	@include media('<=phone') {
+		padding-bottom: 25px;
+	}
+
+	&._first {
+		background-color: rgba($color: #2180b2, $alpha: 0.4);
+
+		&:hover {
+			background-color: rgba($color: #2180b2, $alpha: 0.7);
+		}
+	}
+
+	&._second {
+		background-color: rgba($color: #111, $alpha: 0.4);
+
+		&:hover {
+			background-color: rgba($color: #111, $alpha: 0.3);
+		}
+	}
+
+	&._third {
+		background-color: rgba($color: #51761e, $alpha: 0.5);
+
+		&:hover {
+			background-color: rgba($color: #51761e, $alpha: 0.7);
+		}
+	}
+
+	&_txt {
+		margin-bottom: 0;
+		max-height: 26px;
+		overflow: hidden;
+	}
+
+	&_title {
+		max-height: 52px;
+		overflow: hidden;
+		margin-bottom: 7px;
+	}
+
+	&_img {
+		display: block;
+		max-height: 74px;
+		margin: 0 auto 20px;
+	}
+
+	&_add {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 9px;
+		margin-bottom: 0;
+		max-height: 26px;
+		overflow: hidden;
+
+		@include media('<=phone') {
+			bottom: 15px;
+		}
+	}
+}

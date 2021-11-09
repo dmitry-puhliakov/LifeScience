@@ -1,0 +1,14 @@
+{
+  "name": "simle-gulp-template",
+  "version": "1.0.0",
+  "description": "Simple Gulp template by d.puhliakov",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "gh-pages -d markup"
+  },
+  "author": "d.puhliakov",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}

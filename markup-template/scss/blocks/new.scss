@@ -1,0 +1,49 @@
+.new {
+	width: 220px;
+	text-align: center;
+
+	&_img {
+		width: 220px;
+		height: 220px;
+		border-radius: 50%;
+		border: 1px solid $c-bg-light-gray2;
+	}
+
+	&_title-wrapper {
+		height: 68px;
+		position: relative;
+		width: 100%;
+
+	}
+
+	&_title {
+		max-height: 68px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		margin-bottom: 0;
+		transform: translateY(-50%);
+		overflow: hidden;
+	}
+
+	&_text {
+		height: 148px;
+		display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+	}
+
+	&_read {
+		display: block;
+		width: 220px;
+		height: 38px;
+		margin-bottom: 15px;
+		border: none;
+		border-radius: 19px;
+		background-color: $c-bg-blue;
+	}
+}

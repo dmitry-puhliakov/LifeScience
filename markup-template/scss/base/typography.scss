@@ -1,0 +1,887 @@
+//-------------------- #html
+html {
+	font-size: var(--rem-base);
+	box-sizing: border-box;
+	//fix iOS bugs reset paddings
+	padding: constant(safe-area-inset); //iOS 11
+	padding: env(safe-area-inset); //iOS 11.2+
+
+	@include media("<=desktop") {
+		font-size: calc(var(--rem-base) - 1.5px);
+	}
+
+	@include media("<=tablet") {
+		font-size: calc(var(--rem-base) - 2px);
+	}
+
+	@include media("<=phone") {
+		font-size: calc(var(--rem-base) - 2.5px);
+	}
+
+	@include media("<=xs-phone") {
+		overflow-x: hidden;
+		font-size: calc(var(--rem-base) - 3px);
+	}
+}
+
+//-------------------- #body
+body {
+	color: var(--base-text-color);
+	font: var(--font-size-base)/var(--line-height-base) $base-font;
+	min-width: 320px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+//---------------- #h style h1-h6
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+.h {
+	font-family: $accent-font;
+	font-weight: bold;
+	color: var(--h1-h6-color);
+
+	a {
+		color: inherit;
+		font-size: inherit;
+	}
+}
+
+h1,
+.h1 {
+	font-size: var(--h1);
+	margin: 0 0 0.3em;
+}
+
+h2,
+.h2 {
+	font-size: var(--h2);
+	margin: 0 0 0.4em;
+}
+h3,
+.h3 {
+	font-size: var(--h3);
+	margin: 0 0 0.5em;
+}
+
+h4,
+.h4 {
+	font-size: var(--h4);
+	margin: 0 0 0.6em;
+}
+
+h5,
+.h5 {
+	font-size: var(--h5);
+	margin: 0 0 0.7em;
+}
+
+h6,
+.h6 {
+	font-size: var(--h6);
+	margin: 0 0 0.8em;
+}
+
+//------------------- #p
+p {
+	margin-bottom: 1.2em;
+	margin-top: 0;
+}
+
+//------------------- #a
+a {
+	color: var(--base-link-color);
+	text-decoration: none;
+	transition: all var(--animation-duration) var(--animation-timing-function);
+
+	&:hover {
+		color: var(--color-brand-dark);
+	}
+}
+
+//------------------- #img
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+//----------------------------- style #ol #ul #li
+ul,
+ol {
+	list-style: none;
+	margin-top: 0;
+	padding-left: 0px;
+
+	li {
+		list-style: none;
+	}
+}
+
+//common style ol ul
+#sidebar ol:not([class]),
+#sidebar ul:not([class]),
+.entry ol:not([class]),
+.entry ul:not([class]),
+ul.list-style,
+ol.list-style {
+	--line-height-li: var(--line-height-base, 1.2);
+	$margin-li-top: 10px;
+	font-size: calc(var(--font-size-base) + 2px);
+	margin: 0 0 1.2em 0;
+	color: var(--base-text-color);
+
+	li {
+		line-height: var(--line-height-li);
+		padding-left: 20px;
+		position: relative;
+
+		& + li {
+			margin-top: $margin-li-top;
+		}
+	}
+
+	// nested list ul
+	ul {
+		margin-bottom: 0;
+		margin-top: $margin-li-top;
+	}
+
+	// nested list ol
+	ol {
+		margin-bottom: 0;
+		margin-top: $margin-li-top;
+	}
+}
+
+//style only ul
+#sidebar ul:not([class]),
+.entry ul:not([class]),
+ul.list-style {
+	&>li {
+		padding-left: 15px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			@include size(5px);
+			top: calc(0.5em * var(--line-height-li));
+			left: 0;
+			transform: translateY(-50%);
+			background-color: currentColor;
+		}
+	}
+}
+
+//style only ol
+#sidebar ol:not([class]),
+.entry ol:not([class]),
+ol.list-style {
+	counter-reset: list;
+
+	&>li {
+		padding-left: 22px;
+
+		&:before {
+			content: counter(list) ".";
+			counter-increment: list;
+			position: absolute;
+			top: 0;
+			left: 0px;
+			font-weight: bold;
+		}
+	}
+}
+
+//---------------------- #table
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	margin-bottom: 1.2em;
+
+	th {
+		font-size: var(--font-size-base);
+		color: var(--base-text-color);
+		padding: 10px 15px;
+		text-align: left;
+		border-bottom: 1px solid #979797;
+
+		@include media("<=phone") {
+			padding: 10px 5px;
+		}
+
+		& + th {
+			text-align: center;
+		}
+	}
+
+	td {
+		font-size: var(--font-size-base);
+		color: var(--base-text-color);
+		padding: 10px 15px;
+		border-bottom: 1px solid #979797;
+
+		@include media("<=phone") {
+			padding: 7px 5px;
+		}
+
+		& + td {
+			text-align: center;
+		}
+	}
+}
+
+//------------------- #pre
+pre {
+	max-width: 100%;
+	background: rgba(#000, 0.1);
+	padding: 0.5em;
+}
+
+//------------------- #blockquote
+blockquote {
+	font-size: 25px;
+	color: var(--secondary-color);
+	background: transparent;
+	border-left: 6px solid #ECECEC;
+	padding: 5px 0 5px 28px;
+	margin: 0 0 1.2em;
+}
+
+//------------------- #dl | dt | dd
+dl {
+	margin: 0 0 1.2em 0;
+
+	dt {
+		float: left;
+		clear: left;
+		font-weight: bold;
+		padding: 10px 5px;
+	}
+
+	dd {
+		margin-left: 0;
+		padding: 10px 0;
+	}
+}
+
+//------------------- #custom classes
+
+.header-fl {
+	&_signin {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 21px;
+		text-transform: capitalize;
+		text-align: center;
+		color: $c-txt-white;
+	}
+
+	&_cart-fullness {
+		font-family: "Avenir Medium";
+		font-weight: 400;
+		font-size: 11px;
+		line-height: 17px;
+		text-align: center;
+		color: $c-txt-white;
+	}
+}
+
+.header-sl {
+	&_slogan._first {
+		font-family: "Lato";
+		font-weight: 300;
+		font-size: 19px;
+		line-height: 21px;
+		letter-spacing: 0.2px;
+		text-transform: capitalize;
+		color: $c-txt-black;
+
+		@include media("<=xs-phone") {
+			font-size: 16px;
+			line-height: 18px;
+		}
+	}
+
+	&_slogan._second {
+		font-family: "Patua One";
+		font-size: 18px;
+		line-height: 21px;
+		letter-spacing: 1.9px;
+		text-transform: uppercase;
+		text-align: right;
+		color: $c-txt-green;
+
+		@include media("<=xs-phone") {
+			font-size: 16px;
+			line-height: 18px;
+		}
+	}
+
+	input[type="text"] {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 26px;
+		letter-spacing: 0.2px;
+		color: $c-txt-light-gray;
+
+		&::placeholder {
+			letter-spacing: -0.2px;
+			color: $c-txt-lighter-gray2;
+		}
+	}
+
+	&_phone {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 26px;
+		letter-spacing: -0.3px;
+		color: $c-txt-light-gray2;
+	}
+}
+
+.header-menu {
+	font-family: "Lato";
+	font-weight: 400;
+	font-size: 12.5px;
+	line-height: 26px;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: $c-txt-black;
+}
+
+.banner {
+	.header-menu {
+		color: $c-txt-white;
+	}
+
+	@include media("<=mdx-desktop") {
+		.header-menu {
+				color: $c-txt-black;
+			}
+	}
+}
+
+.banner-fl {
+	&_notice-txt {
+		font-family: "Strawberry Blossom";
+		font-weight: 400;
+		font-size: 55px;
+		line-height: 39px;
+		color: $c-txt-white;
+	}
+}
+
+.slider {
+	&_title {
+		font-family: "Patua One";
+		font-weight: 400;
+		font-size: 27px;
+		line-height: 29px;
+		letter-spacing: -0.7px;
+		color: $c-txt-gray;
+	}
+
+	&_text {
+		font-family: "Lato";
+		font-weight: 400;
+	}
+
+	&_over {
+		font-size: 14px;
+		line-height: 21px;
+		letter-spacing: -0.24px;
+		text-transform: uppercase;
+		color: $c-txt-lighter-gray;
+	}
+
+	&_price-wrapper {
+		color: $c-txt-dark-blue;
+
+		&::before {
+			font-size: 35px;
+		}
+	}
+
+	&_price {
+		font-size: 59px;
+		line-height: normal;
+		letter-spacing: -3px;
+		color: $c-txt-dark-blue;
+
+		&::before {
+			font-size: 35px;
+		}
+	}
+
+	&_desc {
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $c-txt-black;
+	}
+}
+
+.tile {
+	font-weight: 400;
+	color: $c-txt-white;
+
+	&_txt {
+		font-family: "Lato";
+		font-size: 13px;
+		line-height: 26px;
+		letter-spacing: 2.5px;
+		text-transform: uppercase;
+	}
+
+	&_title {
+		font-family: "Patua One";
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 26px;
+		letter-spacing: -0.5px;
+		text-transform: capitalize;
+	}
+
+	&_add {
+		font-family: "Lato";
+		font-size: 13px;
+		line-height: 26px;
+		letter-spacing: 0;
+	}
+}
+
+.section {
+	&_title {
+		font-family: "Patua One";
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 26px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: $c-txt-light-gray;
+
+		&._mp {
+			text-transform: none;
+		}
+	}
+}
+
+.card {
+	font-family: "Lato";
+	font-weight: 400;
+
+	&_title {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 21px;
+		letter-spacing: -0.2px;
+		text-transform: capitalize;
+		text-align: center;
+		color: $c-txt-black;
+	}
+
+	&_price {
+		font-size: 18px;
+		line-height: 26px;
+		color: $c-txt-light-gray;
+
+		&::before {
+			font-size: 10px;
+		}
+
+		&::after {
+			font-size: 10px;
+			text-transform: uppercase;
+		}
+
+		&._3x {
+			font-size: 16px;
+		}
+
+		&._retail {
+			text-decoration: line-through;
+		}
+
+		&._member {
+			color: $c-txt-white;
+
+			&::after {
+				color: $c-txt-light-gray;
+			}
+		}
+	}
+
+	&_add-to-cart {
+		font-family: "Lato";
+		font-weight: 600;
+		font-size: 17px;
+		line-height: 38px;
+		letter-spacing: 0.6px;
+		text-transform: uppercase;
+		text-align: center;
+		color: $c-txt-white;
+	}
+
+	&_add-to-wishlist {
+		font-family: "Lato";
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 35px;
+		letter-spacing: 0.6px;
+		text-transform: uppercase;
+		text-align: center;
+		color: $c-txt-light-dark-blue;
+	}
+}
+
+.new {
+	&_title {
+		font-family: "Lato";
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 21px;
+		letter-spacing: -0.6px;
+		text-transform: capitalize;
+		text-align: center;
+		color: $c-txt-black;
+	}
+
+	&_text {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 17px;
+		line-height: 21px;
+		letter-spacing: 0.2px;
+		color: $c-txt-gray2;
+	}
+
+	&_read {
+		font-family: "Lato";
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 38px;
+		text-transform: uppercase;
+		text-align: center;
+		color: $c-txt-white;
+	}
+}
+
+.newsletter {
+	&_title {
+		font-family: "Patua One";
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 26px;
+		letter-spacing: 0.5px;
+		text-align: center;
+		color: $c-txt-white;
+	}
+
+	&_form {
+		input[type="email"] {
+			font-family: "Lato";
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 14px;
+			letter-spacing: 0.2px;
+			color: $c-txt-light-gray;
+
+			&::placeholder {
+				color: $c-txt-lighter-gray2;
+			}
+		}
+
+		button[type="submit"] {
+			font-family: "Lato";
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 14px;
+			letter-spacing: 0.2px;
+			color: $c-txt-white;
+		}
+	}
+}
+
+.footer {
+	&_phone {
+		font-family: "Lato";
+		font-weight: 700;
+		font-size: 28px;
+		line-height: 38px;
+		letter-spacing: -0.5px;
+		color: $c-txt-white;
+	}
+
+	&_contact {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 17px;
+		letter-spacing: -0.1px;
+		color: $c-txt-lighter-gray2;
+	}
+
+	&_title {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 17px;
+		letter-spacing: -0.2px;
+		text-transform: uppercase;
+		color: $c-txt-white;
+	}
+
+	&_nav-link {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		color: $c-txt-gray-blue;
+
+		&:hover {
+			color: $c-txt-green;
+		}
+	}
+
+	&_slogan {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 21px;
+		letter-spacing: -0.1px;
+		color: $c-txt-gray;
+
+		&._big {
+			font-size: 20px;
+		}
+
+		&._green {
+			font-size: 20px;
+			font-weight: 700;
+			font-style: italic;
+			letter-spacing: 0.6px;
+			color: $c-txt-green;
+		}
+	}
+
+	&_copyright {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 10px;
+		line-height: 15px;
+		letter-spacing: 0.25px;
+		text-align: right;
+		color: $c-txt-lighter-gray2;
+	}
+}
+
+.breadcrumbs {
+	font-family: "Lato";
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 26px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+	color: $c-txt-light-gray;
+
+	&_separator {
+		line-height: 23px;
+		padding: 0 3px;
+	}
+
+	&_link {
+		color: $c-txt-light-gray;
+	}
+
+	&_last {
+		color: $c-txt-gray;
+	}
+}
+
+.info {
+	&_title {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 29px;
+		letter-spacing: -0.4px;
+		text-transform: capitalize;
+		color: $c-txt-black;
+	}
+
+	&_stars {
+		font-size: 20px;
+		color: $c-txt-gold;
+	}
+
+	&_reviews-amount {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 26px;
+		color: $c-txt-light-dark-blue;
+	}
+
+	&_write-review {
+		font-family: "Lato";
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 26px;
+		text-transform: uppercase;
+		color: $c-txt-light-dark-blue;
+	}
+
+	&_status {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 11px;
+		line-height: 20px;
+		text-transform: uppercase;
+		color: $c-txt-white;
+	}
+
+	&_short-desc {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 19px;
+		color: $c-txt-black;
+	}
+
+	&_price {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 21px;
+		line-height: 35px;
+		color: $c-txt-light-gray;
+
+		&::before {
+			font-size: 10px;
+		}
+
+		&::after {
+			font-size: 10px;
+			text-transform: uppercase;
+			line-height: 12px;
+		}
+
+		&._retail {
+			text-decoration: line-through;
+		}
+
+		&._member {
+			color: $c-txt-white;
+
+			&::after {
+				color: $c-txt-light-gray;
+			}
+		}
+	}
+
+	&_tier {
+		text-align: center;
+		color: $c-txt-light-gray;
+	}
+
+	&_tier .title {
+		font-size: 13px;
+		line-height: 16px;
+		text-transform: uppercase;
+	}
+
+	&_tier .low {
+		font-size: 13px;
+		line-height: 15px;
+		color: $c-txt-lighter-gray2;
+	}
+
+	&_products-amount {
+		button {
+			font-family: "Lato";
+			font-weight: 400;
+			font-size: 21px;
+			line-height: 26px;
+			color: $c-txt-lighter-gray2;
+
+			&:hover {
+				color: $c-txt-dark-blue;
+			}
+		}
+
+		input {
+			font-family: "Lato";
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 26px;
+			color: $c-txt-black;
+			text-align: center;
+		}
+	}
+
+	&_add-to-cart {
+		font-family: "Lato";
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 40px;
+		letter-spacing: 0.6px;
+		text-transform: uppercase;
+		text-align: center;
+		color: $c-txt-white;
+	}
+
+	&_social-link {
+
+		&._txt {
+			font-family: "Lato";
+			font-size: 12px;
+			font-weight: 600;
+			line-height: 18px;
+			text-transform: uppercase;
+			color: #7d7d7d;
+		}
+	}
+
+	&_add-to-wishlist {
+		font-family: "Lato";
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 35px;
+		letter-spacing: 0.6px;
+		text-transform: uppercase;
+		text-align: center;
+		color: $c-txt-light-dark-blue;
+	}
+}
+
+.product-tabs {
+	&_text,
+	&_title,
+	&_list {
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 20px;
+		color: $c-txt-black;
+	}
+
+	&_title {
+		font-weight: 700;
+	}
+}

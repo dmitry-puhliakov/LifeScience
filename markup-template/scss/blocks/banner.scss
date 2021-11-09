@@ -1,0 +1,117 @@
+.banner {
+	position: relative;
+	height: 900px;
+	background-image: url(../img/girl.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	@include media('<=tablet') {
+		background-image: url(../img/girl-768-1.jpg);
+	}
+
+	@include media('<=sm-phone') {
+		height: 567px;
+		background-image: url(../img/girl-400.jpg);
+	}
+
+	.banner-fl-wrapper {
+		position: relative;
+	}
+}
+
+.banner-fl {
+	&_notice {
+		position: relative;
+		top: 40px;
+		left: 442px;
+		width: 220px;
+		height: 220px;
+		border-radius: 50%;
+		background-color: $c-bg-yellow-a;
+
+		@include media('<=mdx-desktop') {
+			top: -30px;
+		}
+
+		@include media('<=tablet') {
+			left: 300px;
+		}
+
+		@include media('<=md-phone') {
+			display: none;
+		}
+	}
+
+	&_notice-txt {
+		position: relative;
+		top: 50%;
+		transform: translateY(-54%);
+		text-align: center;
+	}
+
+	&_slider {
+		position: absolute;
+		top: 115px;
+		right: 129px;
+		width: 380px;
+		height: 380px;
+
+		@include media('<=mdx-desktop') {
+			top: 135px;
+		}
+
+		@include media('<=desk-tab') {
+			top: 170px;
+			right: 70px;
+		}
+
+		@include media('<=tablet') {
+			right: 53px;
+		}
+
+		@include media('<=phone') {
+			top: 400px;
+		}
+
+		@include media('<=sm-phone') {
+			display: none;
+		}
+	}
+}
+
+.banner-sl {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.7);
+
+	@include media("<=phone") {
+		display: none;
+	}
+
+	.banner-sl-wrapper {
+		display: flex;
+		padding: 37px 0;
+
+		@include media('<=desktop') {
+			padding: 18px 0;
+		}
+	}
+
+	&_tile {
+		max-height: 215px;
+		overflow: hidden;
+		position: relative;
+		flex: 0 1 320px;
+		margin-right: 18px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@include media('<=phone') {
+			margin: 0;
+		}
+	}
+}

@@ -1,0 +1,61 @@
+.newsletter {
+	height: 295px;
+	background-image: url(../img/newsletter.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.newsletter-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 90px;
+	}
+
+	&_title {
+		margin-bottom: 32px;
+	}
+
+	&_form {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+
+		@include media('<=phone') {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		input[type="email"] {
+			max-width: 585px;
+			width: 70%;
+			height: 42px;
+			margin-right: 6px;
+			padding: 0 15px;
+			border: none;
+			border-radius: 5px;
+			outline: none;
+
+			@include media('<=phone') {
+				max-width: 300px;
+				width: 100%;
+				margin-right: 0;
+				margin-bottom: 10px;
+			}
+		}
+
+		button[type="submit"] {
+			max-width: 110px;
+			width: 30%;
+			height: 42px;
+			border: none;
+			border-radius: 5px;
+			background-color: $c-bg-green;
+
+			@include media('<=phone') {
+				max-width: 300px;
+				width: 100%;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

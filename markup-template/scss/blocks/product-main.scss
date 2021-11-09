@@ -1,0 +1,28 @@
+.product-main {
+	&_wrapper {
+		display: flex;
+
+		@include media("<=md-desktop") {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	&_images {
+		max-width: 580px;
+		margin-right: 24px;
+
+		@include media("<=md-desktop") {
+			margin-bottom: 30px;
+		}
+	}
+
+	&_info {
+		width: calc(100% - 604px);
+
+		@include media("<=md-desktop") {
+			width: 100%;
+			margin-bottom: 30px;
+		}
+	}
+}

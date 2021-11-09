@@ -1,0 +1,145 @@
+$breakpoints: (
+	"full": 1920px,
+	"xl": 1680px,
+	"macbook": 1440px,
+	"ipad-pro": 1366px,
+	"mdx-desktop": 1220px, //my
+	"md-desktop": 1200px,
+	"desktop": 1024px,
+	"desk-tab": 900px, //my
+	"tablet": 768px,
+	"phone": 667px,
+	"md-phone": 568px,
+	"sm-phone": 480px,
+	"xs-phone": 375px
+);
+// ligatured operators ≥ ≤
+
+// keywords
+$media-expressions: (
+	"iphoneX":
+		"(min-width: 812px) and (max-height: 414px) and (orientation: landscape)",
+	"screen": "screen",
+	"print": "print",
+	"handheld": "handheld",
+	"landscape": "(orientation: landscape)",
+	"portrait": "(orientation: portrait)",
+	"retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)"
+);
+
+// Colors theme
+$color-brand: #637b8c;
+$btn-bg-color: #2b2e38;
+
+// font-family
+$base-main-font: "Arial";
+$base-font-sans-serif: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+$base-font-serif: "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+$base-font: $base-main-font, $base-font-sans-serif;
+$accent-font: $base-font;
+
+// Headers
+// name use for media query `<${name}`. See `$breakpoints` variable for a possible key.
+$h1-h6-font-size: (
+	// --------- h1 ---- h2 ----h3 ---- h4 -- h5 -- h6 ---
+	"default": (3.5rem, 2.8rem, 2.2rem, 2rem, 17px, 16px),
+	"tablet": (25px, 23px, 20px, 18px, 17px, 16px)
+);
+
+// Container
+$gutter: 30px;
+$container: (
+	"default": 1020px,
+	"lg": 1400px
+);
+
+// Buttons size
+//
+// x - top/bottom padding
+// y - left/right padding
+// b - border
+// r - radius
+// fz - font-size
+//
+$btnsSize: (
+	"default": (
+		"default": (
+			"y": 10px,
+			"x": 20px,
+			"b": 1px,
+			"r": 3px,
+			"fz": 13px
+		),
+		// if need other size button
+		// 'lg': ('y': 18px, 'x': 35px, 'b': 3px, 'r': 0, 'fz': 22px)
+	),
+	"phone": (
+		"default": (
+			"y": 1rem,
+			"x": 2rem,
+			"b": 1px,
+			"r": 3px,
+			"fz": 13px
+		)
+	)
+);
+// Input padding left and right
+$input-padding-x: map-get(
+	map-get(map-get($btnsSize, "default"), "default"),
+	"x"
+);
+
+// Form elements styling
+$input-color: #4b4a4a;
+$input-placeholder-color: lighten($input-color, 20%);
+$input-bg-color: white;
+$input-radius: 3px;
+$input-border-color: #eee;
+$input-focus-border-color: darken($input-border-color, 13%);
+
+$form-theme-color: $color-brand; // checkbox, radio, datepicker theme color
+$checkbox-size: 18px;
+$radio-size: $checkbox-size;
+
+$label-fz: 13px;
+$label-color: $input-color;
+
+$error-color: #e04562;
+$error-bg-color: lighten($error-color, 35%);
+
+$form-col-gutter: 15px;
+$form-row-margin: $form-col-gutter * 1.5;
+
+//-----my color variables
+$c-bg-white: #fff;
+$c-bg-lighter-gray: #ebebeb;
+$c-bg-light-gray: #cdcdcd;
+$c-bg-light-gray2: #bdbdbd;
+$c-bg-yellow: #fad482;
+$c-bg-yellow-a: rgba(253, 227, 137, 0.6);
+$c-bg-green: #8dc63f;
+$c-bg-blue: #84d5d8;
+$c-bg-dark-blue: #106ab2;
+
+$c-bg-header-first: #6dcff6;
+$c-bg-header-second: #e9f8fe;
+
+$c-menu-hover: rgba(233, 248, 254, 0.5);
+$c-menu-drop: rgba(0, 0, 0, 0.5);
+
+$c-txt-white: #fff;
+$c-txt-lighter-gray: #c2c2c2;
+$c-txt-lighter-gray2: #b7b7b7;
+$c-txt-light-gray: #7d7d7d;
+$c-txt-light-gray2: #555555;
+$c-txt-gray2: #707070;
+$c-txt-gray: #464646;
+$c-txt-black: #000;
+$c-txt-green: #8dc63f;
+$c-txt-blue: #6dcff6;
+$c-txt-blue2: #44a2be;
+$c-txt-gray-blue: #7ca7b9;
+$c-txt-light-dark-blue: #0072bc;
+$c-txt-dark-blue: #0054a6;
+$c-txt-gold: #fec600;

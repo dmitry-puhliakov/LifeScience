@@ -1,0 +1,153 @@
+.product-tabs {
+	&_wrapper {
+		position: relative;
+		margin-bottom: 15px;
+	}
+
+	&_text,
+	&_title,
+	&_list {
+		margin-bottom: 20px;
+	}
+
+	&_columns {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -10px;
+	}
+
+	&_col {
+		width: calc(40% - 10px);
+		min-width: 260px;
+		margin: 0 10px;
+	}
+
+	.more-info {
+		display: none;
+		position: absolute;
+		right: 0;
+		margin: 0;
+		padding: 7px 10px 9px;
+		border: 1px solid $c-bg-light-gray;
+		font-family: "Lato";
+		font-weight: 700;
+		font-size: 12px;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $c-txt-light-dark-blue;
+
+		@include media("<desktop") {
+			top: -20px;
+		}
+	}
+}
+
+// clearfix
+%clearfix {
+	&:after {
+		content: " ";
+		display:table;
+		clear:both;
+	}
+}
+
+.clearfix {
+	@extend %clearfix;
+}
+
+// reset for list
+	%listreset {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.tab-container{
+	margin-top: 1px;
+	border-top: 1px solid $c-bg-light-gray;
+	padding: 18px 0;
+}
+.tab-to-accordion{
+	&.accordion-mod{
+		.tab-container {
+			border: none;
+		}
+
+		.tabset-list{
+			height:0;
+			visibility:hidden;
+			overflow:hidden;
+		}
+		.accordion-item{
+			height:auto;
+			overflow:visible;
+			visibility:visible;
+			margin: 0 0 15px;
+		}
+	}
+}
+
+.tabset-list{
+	@extend %listreset;
+	display: flex;
+	margin: 0 0 -1px;
+
+	a {
+		display: block;
+		margin-right: 50px;
+		padding: 6px 0;
+		border: 4px solid transparent;
+		border-width: 1px 1px 4px 0;
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 12px;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $c-txt-light-dark-blue;
+		transition: border 0.2s linear;
+	}
+
+	li {
+		&:first-child {
+			a {
+				border-left-width: 1px;
+			}
+		}
+	}
+
+	.active {
+		> a {
+			border-bottom: 4px solid $c-bg-yellow;
+			font-weight: 700;
+		}
+	}
+}
+
+.accordion-item {
+	height: 0;
+	visibility: hidden;
+	overflow: hidden;
+
+	a {
+		text-decoration: none;
+		display: block;
+		background: $c-bg-header-second;
+		padding: 8px 20px;
+		color: $c-txt-light-dark-blue;
+		border: 1px solid $c-txt-light-dark-blue;
+		margin: 0 -1px 0 0;
+		font-family: "Lato";
+		font-weight: 400;
+		font-size: 12px;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: background 0.25s ease-in-out;
+	}
+
+	&.active {
+		> a {
+			background: #fff;
+			font-weight: 700;
+			color: $c-txt-light-dark-blue;
+		}
+	}
+}
